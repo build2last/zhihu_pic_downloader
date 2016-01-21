@@ -73,19 +73,6 @@ for i in range(len(pic_items)):
     d=download(que)  
     d.start()
 
-"""
-for img_url in pic_items:
-    try:
-        req=urllib.request.Request(img_url,headers=headers)
-        img_data=urllib.request.urlopen(req,timeout=15)
-        file_name=basename(urllib.parse.urlsplit(img_url)[2])
-        with open('images/'+file_name,'wb') as pic_code:
-                pic_code.write(img_data.read())
-    except:
-        print("One pic fail to download.\n")
-        print (img_url+'\n')
-        failures+=1
-"""
 if que.empty():
     print("所有线程打开结束.")
         
