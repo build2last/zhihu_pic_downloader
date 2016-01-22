@@ -53,12 +53,13 @@ class download(threading.Thread):
                 try:
                     img_url=self.que.get()
                     req=urllib.request.Request(img_url,headers=headers)
-                    img_data=urllib.request.urlopen(req,timeout=15)
+                    img_data=urllib.request.urlopen(req,timeout=100)
                     file_name=basename(urllib.parse.urlsplit(img_url)[2])
                     with open('images/'+file_name,'wb') as pic_code:
                             pic_code.write(img_data.read())
                 except:
                     print("One pic fail to download.\n")
+                    print(e)
                     print (img_url+'\n')
             else:  
                 print("一个线程结束了！\n")
@@ -68,8 +69,9 @@ class download(threading.Thread):
 
 que=queue.Queue() 
 for img in pic_items:
-    que.put(img)  
-for i in range(len(pic_items)):  
+    que.put(img) 
+#就20个线程吧    
+for i in range(20):  
     d=download(que)  
     d.start()
 
