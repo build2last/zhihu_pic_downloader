@@ -3,5 +3,5 @@
 
 eg:https://www.zhihu.com/question/39663757
 
-基于python3，原生环境即可运行。
-仅作为单一脚本
+python3标准库可运行
+
