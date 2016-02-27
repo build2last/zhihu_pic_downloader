@@ -1,4 +1,4 @@
-#encoding:utf-8
+#coding:utf-8
 from urlparse import urlsplit
 from os.path import basename
 import urllib2
